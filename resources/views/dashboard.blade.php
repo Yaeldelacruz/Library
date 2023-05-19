@@ -1,15 +1,33 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.basic')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-welcome />
-            </div>
+@section('title', 'Inicio')
+    
+@section('body')
+    <div class="grid grid-cols-5 grid-flow-row gap-4 my-2">
+        <div>
+            <button class="text-blue-600 text-lg border border-blue-600 bg-white hover:bg-blue-600 hover:text-white rounded-md px-4 py-2 my-2 w-3/4">
+                <a href="{{ route('author.index') }}">Autores</a>
+            </button>
+        </div>
+        <div>
+            <button class="text-blue-600 text-lg border border-blue-600 bg-white hover:bg-blue-600 hover:text-white rounded-md px-4 py-2 my-2 w-3/4">
+                <a href="{{ route('book.index') }}">Libros</a>
+            </button>
+        </div>
+        <div>
+            <button class="text-blue-600 text-lg border border-blue-600 bg-white hover:bg-blue-600 hover:text-white rounded-md px-4 py-2 my-2 w-3/4">
+                <a href="{{ route('editorial.index') }}">Editoriales</a>
+            </button>
+        </div>
+        <div>
+            <button class="text-blue-600 text-lg border border-blue-600 bg-white hover:bg-blue-600 hover:text-white rounded-md px-4 py-2 my-2 w-3/4">
+                <a href="{{ route('gender.index') }}">Generos</a>
+            </button>
+        </div>
+        <div>
+            <button class="text-blue-600 text-lg border border-blue-600 bg-white hover:bg-blue-600 hover:text-white rounded-md px-4 py-2 my-2 w-3/4">
+                <a href="{{ route('nacionality.index') }}">Paises</a>
+            </button>
         </div>
     </div>
-</x-app-layout>
+@endsection

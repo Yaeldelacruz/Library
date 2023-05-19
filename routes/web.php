@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\EditorialController;
+use App\Http\Controllers\GenderController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\NacionalityController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +21,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::resource('books', BookController::class)->parameters(['books' => 'book'])->names('book');
+Route::resource('editorials', EditorialController::class)->parameters(['editorials' => 'editorial'])->names('editorial');
+Route::resource('nacionalities', NacionalityController::class)->parameters(['nacionalities' => 'nacionality'])->names('nacionality');
+Route::resource('genders', GenderController::class)->parameters(['genders' => 'gender'])->names('gender');
+Route::resource('authors', AuthorController::class)->parameters(['authors' => 'author'])->names('author');
+
+Route::controller(IndexController::class)->group(function(){
+    Route::get('index', 'index')->name('index.index');
+    Route::get('index', 'create')->name('index.create');
 });
 
 Route::middleware([
